@@ -1,5 +1,9 @@
+<?php
+   include('assets/php/validate_form.php')
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +22,7 @@
     <fieldset class="container my-4 shadow p-3 mb-5 bg-white rounded">
         <small>* champ obligatoire</small>
         <form action="" method="POST">
-        <!-- nom et prénom -->
+            <!-- nom et prénom -->
             <div class="my-3 row">
                 <label for="name" class="col-form-label col-2">Votre Nom*</label>
                 <div class="col-4">
