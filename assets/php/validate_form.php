@@ -1,5 +1,10 @@
 <?php
+$error = false;
+if($_SERVER['REQUEST_METHOD'] == 'POST'){    
+    include('assets/php/regexp.php');
 
+
+    // création d'une fonction de nettoyage de base
     function valid_data($data) {
         // supprime les espaces inutiles (débub et fin)
         $data = trim($data);
@@ -8,6 +13,24 @@
         // échappe les caractères spéciaux
         $data = htmlspecialchars($data);
         return $data;
+    }
+
+    // validation des champs un par un
+    if(!empty($_POST['name'])){
+        $name = valid_data($_POST['name']);
+        
+        $test_regex = preg_match($regex_name, $name);
+        if($test_regex !== 1){
+            $error = true;
+            $error_array['error_name']->_active = true;
+        }
+    }else{
+        $error = 'Veuillez remplir le champ \'nom\'. ';
+    }
+
+    if(!empty($_POST['lastname'])){
+        $lastname = valid_data($_POST['lastname']);
+
     }
 
     // test des champs obligatoire et mise en variable 
@@ -26,8 +49,7 @@
         $job_number = valid_data($_POST['job_number']);
 
     } else {
-        header("Location:../../index.php");
-    }
-
+   // if(isset($_POST[]))
+}
 
 ?>
