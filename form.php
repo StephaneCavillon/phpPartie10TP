@@ -20,14 +20,14 @@
         <form action="" method="POST">
             <!-- nom et prénom -->
             <div class="my-3 row">
-                <label for="name" class="col-form-label col-2">Votre Nom*</label>
+                <label for="lastname" class="col-form-label col-2">Votre Nom*</label>
                 <div class="col-4">
-                    <input type="text" name="name" id="name" class="form-control" pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" minlength="2" maxlength="20" required>
+                    <input type="text" name="lastname" id="lastname" class="form-control" pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" minlength="2" maxlength="20" required>
                     <?= ($error_array['error_name']->_active) ? $error_array['error_name']->_message : '';?>
                 </div>
-                <label for="lastname" class="col-form-label col-2">Votre Prénom*</label>
+                <label for="name" class="col-form-label col-2">Votre Prénom*</label>
                 <div class="col-4">
-                    <input type="text" name="lastname" id="lastname" class="form-control"pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" maxlength="20" required>
+                    <input type="text" name="name" id="name" class="form-control"pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" maxlength="20" required>
                     <?= ($error_array['error_lastname']->_active) ? $error_array['error_lastname']->_message : '';?>
                 </div>
             </div>

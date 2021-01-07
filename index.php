@@ -1,4 +1,6 @@
-<?php   
+<?php  
+    // include('bacasable.php');
+
     // On créer le tableau d'erreur
     include('assets/php/errorchart.php');
     
