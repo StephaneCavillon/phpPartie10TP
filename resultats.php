@@ -22,6 +22,6 @@
     <?= (isset($xp_info)) ? "Votre experience dans la $xp_info" : '' ?>
     </p>
 
-    <h2>Merci d'avoir remplis le formulaire !</h2>
+    <h2>Merci d'avoir rempli le formulaire !</h2>
 </body>
 </html>

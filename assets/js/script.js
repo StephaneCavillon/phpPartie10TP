@@ -20,7 +20,7 @@ input_badge_number.addEventListener('input', function() {
 let input_required = document.querySelectorAll('input[required]');
 let submit_btn = document.querySelector('button');
 
-console.log(input_required);
+// console.log(input_required);
 input_required.forEach(element => {
     // ajout d'un listener sur les champs required
     element.addEventListener('change', function() {

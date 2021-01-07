@@ -87,7 +87,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }else{}
 
-     if(!empty($_POST['adresse_number'])){
+    if(!empty($_POST['adresse_number'])){
         $adresse_number = valid_data($_POST['adresse_number']);
 
         $adresse_number = filter_var($adresse_number, FILTER_SANITIZE_NUMBER_INT);
@@ -182,6 +182,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $error_array['error_diplome']->_active = true;
         }else{
             // On pourrait enregistrer dans la BDD par exemple
+            // Donner une valeur à $diplome pour l'utiliser dans resultats après
+            switch($diplome){
+                case 0:
+                    $diplome = 'Sans diplome';
+                    break;
+                case +1:
+                    $diplome = 'Bac';
+                    break;
+                case +2:
+                    $diplome = 'Bac+2';
+                    break;
+                case +3:
+                    $diplome = 'Bac+3';
+                    break;
+            }
         }
     }else{}
 
@@ -202,7 +217,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(!empty($_POST['badge_number'])){
         $badge_number = valid_data($_POST['badge_number']);
 
-        $badge_number = filter_var($badge_number, FILTER_SANITIZE_NUMBER_INT);
+        // $badge_number = filter_var($badge_number, FILTER_SANITIZE_NUMBER_INT);
 
         //test de la donnée
         $test_regex = preg_match($regex_badge_number, $badge_number);
@@ -271,45 +286,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }else{}
 
-    
-
-
     // vérification de l'état des erreurs dans le tableau d'erreur
     // $error_array['error_name']->_active = true;
     foreach ($error_array as $key => $value) {
-        if($key->_active == true){
+        if($error_array[$key]->_active == true){
             $error = true;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // test des champs obligatoire et mise en variable 
-    // if(!empty($_POST['name']) && !empty($_POST['lastname']) && !empty($_POST['birthDate']) && !empty($_POST['nation']) && !empty($_POST['adresse_number']) && !empty($_POST['road_name']) && !empty($_POST['postal_code']) && !empty($_POST['city']) && !empty($_POST['mail']) && !empty($_POST['phone']) && !empty($_POST['job_number'])){
-      
-    //     $name = valid_data($_POST['name']);
-    //     $lastname = valid_data($_POST['lastname']);
-    //     $birthDate = valid_data($_POST['birthDate']);
-    //     $nation = valid_data($_POST['nation']);
-    //     $adresse_number = valid_data($_POST['adresse_number']);
-    //     $road_name = valid_data($_POST['road_name']);
-    //     $postal_code = valid_data($_POST['postal_code']);
-    //     $city = valid_data($_POST['city']);
-    //     $mail = filter_var(valid_data($_POST['mail']), FILTER_SANITIZE_EMAIL);
-    //     $phone = valid_data($_POST['phone']);
-    //     $job_number = valid_data($_POST['job_number']);
-
-    // } else {
-   // if(isset($_POST[]))
 }
 ?>
