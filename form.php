@@ -401,7 +401,7 @@
             <div class="my-3 row">
                 <label for="superhero" class="col-form-label col-2">Si vous étiez un super héros/une super héroïne, qui seriez-vous et pourquoi ?</label>
                 <div class="col-6">
-                    <textarea name="superhero" id="superhero" class="form-control" style="height: 200px">Super héros/une super héroïne, qui seriez-vous et pourquoi ?</textarea>
+                    <textarea name="superhero" id="superhero" class="form-control" style="height: 200px" placeholder="Super héros/une super héroïne, qui seriez-vous et pourquoi ?"></textarea>
                     <?= ($error_array['error_superhero']->_active) ? $error_array['error_superhero']->_message : '';?>
                 </div>
             </div>
@@ -409,7 +409,7 @@
             <div class="my-3 row">
                 <label for="hack" class="col-form-label col-2">Racontez-nous un de vos "hacks" (pas forcément technique ou informatique)</label>
                 <div class="col-6">
-                    <textarea name="hack" id="hack" class="form-control" style="height: 200px">Racontez-nous un de vos "hacks"</textarea>
+                    <textarea name="hack" id="hack" class="form-control" style="height: 200px" placeholder="Racontez-nous un de vos hacks"></textarea>
                     <?= ($error_array['error_hack']->_active) ? $error_array['error_hack']->_message : '';?>
                 </div>
             </div>
@@ -417,7 +417,7 @@
             <div class="my-3 row">
                 <label for="xp_info" class="col-form-label col-2">Avez vous déjà eu une expérience avec la programmation et/ou l'informatique avant de remplir ce formulaire ?</label>
                 <div class="col-6">
-                    <textarea name="xp_info" id="xp_info" class="form-control" style="height: 200px">Racontez-nous vos expériences</textarea>
+                    <textarea name="xp_info" id="xp_info" class="form-control" style="height: 200px" placeholder="Racontez-nous vos expériences"></textarea>
                     <?= ($error_array['error_xp_info']->_active) ? $error_array['error_xp_info']->_message : '';?>
                 </div>
             </div>
