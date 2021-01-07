@@ -1,4 +1,5 @@
 <?php
+    $error = false;
     $error_array = array();
 
     class create_error{

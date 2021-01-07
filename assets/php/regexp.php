@@ -1,6 +1,6 @@
 <?php
 $regex_name = '/^[A-Za-z éèêëàâäôöûüç \'-]{2,20}$/';
-$regex_date = '/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/';
+$regex_date = '/^([0-2][0-9]|(3)[0-1])(\/|-)(((0)[0-9])|((1)[0-2]))(\/|-)\d{4}$/';
 $regex_country = '/^[A-Za-z éèêëàâäôöûüç \'-]{1,58}$/';
 $regex_nation = '/^[A-Za-z éèêëàâäôöûüç \'-]{2,20}$/';
 $regex_number = '/^[\d]{1,4}$/';
@@ -14,4 +14,4 @@ $regex_job_number = '/^(\d{7}[A-Z]\d{2})$/';
 $regex_badge_number = '/[0-200]/';
 $regex_link_codecademy = '/^(https:\/\/www\.codecademy\.com\/profiles\/[\w]+)$/';
 $regex_textarea = '/^[\w]*$/';
-
+?>
