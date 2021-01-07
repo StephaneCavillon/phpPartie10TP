@@ -22,12 +22,12 @@
             <div class="my-3 row">
                 <label for="lastname" class="col-form-label col-2">Votre Nom*</label>
                 <div class="col-4">
-                    <input type="text" name="lastname" id="lastname" class="form-control" pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" minlength="2" maxlength="20" required>
+                    <input type="text" name="lastname" id="lastname" class="form-control" pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" minlength="2" maxlength="20" <?=(isset($lastname)) ? "value=\"$lastname\"" : ''?> required>
                     <?= ($error_array['error_name']->_active) ? $error_array['error_name']->_message : '';?>
                 </div>
                 <label for="name" class="col-form-label col-2">Votre Prénom*</label>
                 <div class="col-4">
-                    <input type="text" name="name" id="name" class="form-control"pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" maxlength="20" required>
+                    <input type="text" name="name" id="name" class="form-control"pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" maxlength="20" <?=(isset($name)) ? "value=\"$name\"" : ''?> required>
                     <?= ($error_array['error_lastname']->_active) ? $error_array['error_lastname']->_message : '';?>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <div class="my-3 row">
                 <label for="birthDate" class="col-form-label col-2">Votre Date de Naissance*</label>
                 <div class="col-4">
-                    <input type="date" name="birthDate" id="birthDate" class="form-control" min="<?=date('Y-m-d', strtotime('-100 year'));?>" max="<?=date('Y-m-d');?>" required>
+                    <input type="date" name="birthDate" id="birthDate" class="form-control" min="<?=date('Y-m-d', strtotime('-100 year'));?>" max="<?=date('Y-m-d');?>" <?=(isset($birthDate)) ? "value=\"$birthDate\"" : ''?> required>
                     <?= ($error_array['error_birthDate']->_active) ? $error_array['error_birthDate']->_message : '';?>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                 <label for="birthCountry" class="col-form-label col-2">Votre Pays de Naissance</label>
                 <div class="col-4">
                     <select name="birthCountry" class="form-select">
-                        <option value=""></option>
+                        <option value=<?=(isset($birthCountry)) ? "\"$birthCountry\"" : ''?>><?=(isset($birthCountry)) ? "\"$birthCountry\"" : ''?></option>
                         <option value="France">France </option>
 
                         <option value="Afghanistan">Afghanistan </option>
@@ -309,7 +309,7 @@
             <div class="my-3 row">
                 <label for="nation" class="col-form-label col-2">Votre Nationalité*</label>
                 <div class="col-4">
-                    <input type="text" name="nation" id="nation" class="form-control" pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" required>
+                    <input type="text" name="nation" id="nation" class="form-control" pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" <?=(isset($nation)) ? "value=\"$nation\"" : ''?> required>
                     <?= ($error_array['error_nation']->_active) ? $error_array['error_nation']->_message : '';?>
                 </div>
             </div>
@@ -319,12 +319,12 @@
                 <div class="mb-3 row">
                     <label for="adresse_number" class="col-form-label col-1 offset-1">N°</label>
                     <div class="col-2">
-                        <input type="text" name="adresse_number" id="adresse_number" class="form-control" pattern="^(\d{1,4})$" required>
+                        <input type="text" name="adresse_number" id="adresse_number" class="form-control" pattern="^(\d{1,4})$" <?=(isset($adresse_number)) ? "value=\"$adresse_number\"" : ''?> required>
                         <?= ($error_array['error_adresse_number']->_active) ? $error_array['error_adresse_number']->_message : '';?>
                     </div>
                     <label for="road_name" class="col-form-label col-2">Nom de la voie</label>
                     <div class="col-5">
-                        <input type="text" name="road_name" id="road_name" class="form-control" pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" required>
+                        <input type="text" name="road_name" id="road_name" class="form-control" pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" <?=(isset($road_name)) ? "value=\"$road_name\"" : ''?> required>
                         <?= ($error_array['error_road_name']->_active) ? $error_array['error_road_name']->_message : '';?>
                     </div>
                 </div>
@@ -332,13 +332,13 @@
                 <div class="row">
                     <label for="postal_code" class="col-form-label col-1 offset-1">Code Postal</label>
                     <div class="col-2">
-                        <input type="text" name="postal_code" id="postal_code" class="form-control" pattern="^(\d{2,3}|\d{5})$" required>
+                        <input type="text" name="postal_code" id="postal_code" class="form-control" pattern="^(\d{2,3}|\d{5})$" <?=(isset($postal_code)) ? "value=\"$postal_code\"" : ''?> required>
                         <?= ($error_array['error_postal_code']->_active) ? $error_array['error_postal_code']->_message : '';?>
 
                     </div>
                     <label for="city" class="col-form-label col-2">Ville</label>
                     <div class="col-3">
-                        <input type="text" name="city" id="city" class="form-control" pattern="^[A-Za-z éèêëàâäôöûüç '-]+$"required>
+                        <input type="text" name="city" id="city" class="form-control" pattern="^[A-Za-z éèêëàâäôöûüç '-]+$" <?=(isset($city)) ? "value=\"$city\"" : ''?> required>
                         <?= ($error_array['error_city']->_active) ? $error_array['error_city']->_message : '';?>
                     </div>
                 </div>
@@ -347,7 +347,7 @@
             <div class="my-3 row">
                 <label for="mail" class="col-form-label col-2">Votre E-Mail*</label>
                 <div class="col-4">
-                    <input type="email" name="mail" id="mail" class="form-control" placeholder="exemple@domaine.fr" pattern="^[\w\.-]+@[\w-]+\.\w{2,10}$" required>
+                    <input type="email" name="mail" id="mail" class="form-control" placeholder="exemple@domaine.fr" pattern="^[\w\.-]+@[\w-]+\.\w{2,10}$" <?=(isset($mail)) ? "value=\"$mail\"" : ''?> required>
                     <?= ($error_array['error_mail']->_active) ? $error_array['error_mail']->_message : '';?>
                 </div>
             </div>
@@ -355,7 +355,7 @@
             <div class="my-3 row">
                 <label for="phone" class="col-form-label col-2">Votre Numéro de Téléphone*</label>
                 <div class="col-4">
-                    <input type="tel" name="phone" id="phone" class="form-control" pattern="([0-9]{2}[-|\/|\.|\s]){4}[0-9]{2}" placeholder="01-02-03-04-05" required>
+                    <input type="tel" name="phone" id="phone" class="form-control" pattern="([0-9]{2}[-|\/|\.|\s]){4}[0-9]{2}" placeholder="01-02-03-04-05" <?=(isset($phone)) ? "value=\"$phone\"" : ''?> required>
                     <?= ($error_array['error_phone']->_active) ? $error_array['error_phone']->_message : '';?>
                 </div>
             </div>
@@ -364,7 +364,8 @@
                 <label for="diplome" class="col-form-label col-2">Votre Dernier Diplôme</label>
                 <div class="col-4">
                     <select name="diplome" class="form-select">
-                        <option value="0" selected>Sans diplôme</option>
+                        <option value="<?=(isset($diplome)) ? "\"$diplome\"" : ''?>"><?=(isset($diplome)) ? "\"$diplome\"" : ''?></option>
+                        <option value="-1" selected>Sans diplôme</option>
                         <option value="+1">Bac</option>
                         <option value="+2">Bac+2</option>
                         <option value="+3">bac+3 ou Supérieur</option> 
@@ -376,7 +377,7 @@
             <div class="my-3 row">
                 <label for="job_number" class="col-form-label col-2">Votre Numéro Pole Emploi*</label>
                 <div class="col-4">
-                    <input type="text" name="job_number" id="job_number" class="form-control" pattern="^(\d{7}[A-Z]\d{2})$" required>
+                    <input type="text" name="job_number" id="job_number" class="form-control" pattern="^(\d{7}[A-Z]\d{2})$" <?=(isset($job_number)) ? "value=\"$job_number\"" : ''?> required>
                     <?= ($error_array['error_job_number']->_active) ? $error_array['error_job_number']->_message : '';?>
                 </div>
             </div>
@@ -384,7 +385,7 @@
             <div class="my-3 row">
                 <label for="badge_number" class="col-form-label col-2">Votre Nombre de Badge CodeCademy</label>
                 <div class="col-4">
-                    <input type="number" name="badge_number" id="badge_number" class="form-control" min="0" max="200">
+                    <input type="number" name="badge_number" id="badge_number" class="form-control" min="0" max="200" <?=(isset($badge_number)) ? "value=\"$badge_number\"" : ''?>>
                     <small id="valide_badge_number"></small>
                     <?= ($error_array['error_badge_number']->_active) ? $error_array['error_badge_number']->_message : '';?>
                 </div>
@@ -393,7 +394,7 @@
             <div class="my-3 row">
                 <label for="codecademy_link" class="col-form-label col-2">Votre Profil Codecademy</label>
                 <div class="col-4">
-                    <input type="text" name="codecademy_link" id="codecademy_link" class="form-control" pattern="^(https:\/\/www\.codecademy\.com\/profiles\/[\w]+)$">
+                    <input type="text" name="codecademy_link" id="codecademy_link" class="form-control" pattern="^(https:\/\/www\.codecademy\.com\/profiles\/[\w]+)$" <?=(isset($codecademy_link)) ? "value=\"$codecademy_link\"" : ''?>>
                     <?= ($error_array['error_codecademy_link']->_active) ? $error_array['error_codecademy_link']->_message : '';?>
                 </div>
             </div>
@@ -401,7 +402,7 @@
             <div class="my-3 row">
                 <label for="superhero" class="col-form-label col-2">Si vous étiez un super héros/une super héroïne, qui seriez-vous et pourquoi ?</label>
                 <div class="col-6">
-                    <textarea name="superhero" id="superhero" class="form-control" style="height: 200px" placeholder="Super héros/une super héroïne, qui seriez-vous et pourquoi ?"></textarea>
+                    <textarea name="superhero" id="superhero" class="form-control" style="height: 200px" placeholder="Super héros/une super héroïne, qui seriez-vous et pourquoi ?" <?=(isset($superhero)) ? "value=\"$superhero\"" : ''?>></textarea>
                     <?= ($error_array['error_superhero']->_active) ? $error_array['error_superhero']->_message : '';?>
                 </div>
             </div>
@@ -409,7 +410,7 @@
             <div class="my-3 row">
                 <label for="hack" class="col-form-label col-2">Racontez-nous un de vos "hacks" (pas forcément technique ou informatique)</label>
                 <div class="col-6">
-                    <textarea name="hack" id="hack" class="form-control" style="height: 200px" placeholder="Racontez-nous un de vos hacks"></textarea>
+                    <textarea name="hack" id="hack" class="form-control" style="height: 200px" placeholder="Racontez-nous un de vos hacks" <?=(isset($hack)) ? "value=\"$hack\"" : ''?>></textarea>
                     <?= ($error_array['error_hack']->_active) ? $error_array['error_hack']->_message : '';?>
                 </div>
             </div>
@@ -417,7 +418,7 @@
             <div class="my-3 row">
                 <label for="xp_info" class="col-form-label col-2">Avez vous déjà eu une expérience avec la programmation et/ou l'informatique avant de remplir ce formulaire ?</label>
                 <div class="col-6">
-                    <textarea name="xp_info" id="xp_info" class="form-control" style="height: 200px" placeholder="Racontez-nous vos expériences"></textarea>
+                    <textarea name="xp_info" id="xp_info" class="form-control" style="height: 200px" placeholder="Racontez-nous vos expériences" <?=(isset($xp_info)) ? "value=\"$xp_info\"" : ''?>></textarea>
                     <?= ($error_array['error_xp_info']->_active) ? $error_array['error_xp_info']->_message : '';?>
                 </div>
             </div>

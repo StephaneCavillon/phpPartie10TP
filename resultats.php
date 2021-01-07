@@ -8,7 +8,7 @@
 <body>
     <h1>Dossier de candidature pour un nouvel apprenant La Manu</h1>
     
-    <p> Bonjour <?=$name . ' ' . $lastname?>, Vous êtes né(e) le <?=$birthDate?> <!--et avez XX ans-->. <br>
+    <p> Bonjour <?=$name . ' ' . $lastname?>, Vous êtes né(e) le <?=$birthDate?><!--et avez XX ans-->. <br>
     <?=(isset($birthCountry)) ? 'Votre pays de naissance est ' . $birthCountry . ' et vous' : 'Vous '?> êtes <?=$nation?>.<br>
     Vous habitez au <?=$adresse_number . ', ' . $road_name . ' à ' . $city?> dont le code postal est <?=$postal_code?>. <br>
     Votre adresse Email est <?=$mail?> et votre numéro de téléphone est le <?=$phone?>. <br>

@@ -171,7 +171,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }else{}
 
     if(!empty($_POST['diplome'])){
-        //  value = 0 +1 +2 ou +3
+        //  value = -1 +1 +2 ou +3
         $diplome = valid_data($_POST['diplome']);
 
         $diplome = filter_var($diplome, FILTER_SANITIZE_STRING);
@@ -184,7 +184,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             // On pourrait enregistrer dans la BDD par exemple
             // Donner une valeur à $diplome pour l'utiliser dans resultats après
             switch($diplome){
-                case 0:
+                case -1:
                     $diplome = 'Sans diplome';
                     break;
                 case +1:
