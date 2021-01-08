@@ -17,8 +17,8 @@
 
     <?= (isset($codecademy_link)) ? ('Vous avez un profil codecademy' . ((isset($badge_number)) ? " avec $badge_number." : ".") . '<br>') : ''?>
 
-    <?= (isset($superhero)) ? "Le superhéros auxquel vous vous identifiez est $superhero." : ''?><br>
-    <?= (isset($hack)) ? "L'un de vos hacks est $hack" : '' ?><br>
+    <?= (isset($superhero)) ? "Le superhéros auxquel vous vous identifiez est $superhero. <br>" : ''?>
+    <?= (isset($hack)) ? "L'un de vos hacks est $hack <br> " : '' ?>
     <?= (isset($xp_info)) ? "Votre experience dans la $xp_info" : '' ?>
     </p>
 
