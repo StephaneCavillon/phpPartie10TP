@@ -44,7 +44,7 @@
                 <label for="birthCountry" class="col-form-label col-2">Votre Pays de Naissance</label>
                 <div class="col-4">
                     <select name="birthCountry" class="form-select">
-                        <option value=<?=(isset($birthCountry)) ? "\"$birthCountry\"" : ''?>><?=(isset($birthCountry)) ? "\"$birthCountry\"" : ''?></option>
+                        <option value=<?=(isset($birthCountry)) ? "\"$birthCountry\"" : ''?>><?=(isset($birthCountry)) ? "$birthCountry" : ''?></option>
                         <option value="France">France </option>
 
                         <option value="Afghanistan">Afghanistan </option>
@@ -347,7 +347,7 @@
             <div class="my-3 row">
                 <label for="mail" class="col-form-label col-2">Votre E-Mail*</label>
                 <div class="col-4">
-                    <input type="email" name="mail" id="mail" class="form-control" placeholder="exemple@domaine.fr" pattern="^[\w\.-]+@[\w-]+\.\w{2,10}$" <?=(isset($mail)) ? "value=\"$mail\"" : ''?> required>
+                    <input type="email" name="mail" id="mail" class="form-control" placeholder="exemple@domaine.fr" pattern="^[\w\.-]+@[\w-]+\.[A-Za-z]{2,6}$" <?=(isset($mail)) ? "value=\"$mail\"" : ''?> required>
                     <?= ($error_array['error_mail']->_active) ? $error_array['error_mail']->_message : '';?>
                 </div>
             </div>
@@ -402,7 +402,8 @@
             <div class="my-3 row">
                 <label for="superhero" class="col-form-label col-2">Si vous étiez un super héros/une super héroïne, qui seriez-vous et pourquoi ?</label>
                 <div class="col-6">
-                    <textarea name="superhero" id="superhero" class="form-control" style="height: 200px" placeholder="Super héros/une super héroïne, qui seriez-vous et pourquoi ?" <?=(isset($superhero)) ? "value=\"$superhero\"" : ''?>></textarea>
+                <!-- forme de ternaire : si $superhero existe l'afficher sinon afficher '' -->
+                    <textarea name="superhero" id="superhero" class="form-control" style="height: 200px" placeholder="Super héros/une super héroïne, qui seriez-vous et pourquoi ?" ><?= $superhero ?? ''?></textarea>
                     <?= ($error_array['error_superhero']->_active) ? $error_array['error_superhero']->_message : '';?>
                 </div>
             </div>
@@ -410,7 +411,7 @@
             <div class="my-3 row">
                 <label for="hack" class="col-form-label col-2">Racontez-nous un de vos "hacks" (pas forcément technique ou informatique)</label>
                 <div class="col-6">
-                    <textarea name="hack" id="hack" class="form-control" style="height: 200px" placeholder="Racontez-nous un de vos hacks" <?=(isset($hack)) ? "value=\"$hack\"" : ''?>></textarea>
+                    <textarea name="hack" id="hack" class="form-control" style="height: 200px" placeholder="Racontez-nous un de vos hacks"><?= $hack ?? ''?></textarea>
                     <?= ($error_array['error_hack']->_active) ? $error_array['error_hack']->_message : '';?>
                 </div>
             </div>
@@ -418,7 +419,7 @@
             <div class="my-3 row">
                 <label for="xp_info" class="col-form-label col-2">Avez vous déjà eu une expérience avec la programmation et/ou l'informatique avant de remplir ce formulaire ?</label>
                 <div class="col-6">
-                    <textarea name="xp_info" id="xp_info" class="form-control" style="height: 200px" placeholder="Racontez-nous vos expériences" <?=(isset($xp_info)) ? "value=\"$xp_info\"" : ''?>></textarea>
+                    <textarea name="xp_info" id="xp_info" class="form-control" style="height: 200px" placeholder="Racontez-nous vos expériences"><?=$xp_info ?? ''?></textarea>
                     <?= ($error_array['error_xp_info']->_active) ? $error_array['error_xp_info']->_message : '';?>
                 </div>
             </div>

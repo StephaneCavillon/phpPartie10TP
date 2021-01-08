@@ -16,12 +16,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     // validation des champs un par un
     if(!empty($_POST['name'])){
+        //permet en même temps de vérifier si le champ existe
+        // $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)
+        $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
+
         //nettoyage de la donnée
-        $name = valid_data($_POST['name']);
+        $name = valid_data($name);
         // équivalent de htmlspecialchars() avec ENT_QUOTES
         // $name = filter_var($name, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-        $name = filter_var($name, FILTER_SANITIZE_STRING);
         
         //test de la donnée
         $test_regex = preg_match($regex_name, $name);
@@ -167,6 +170,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $error_array['error_phone']->_active = true;
         }else{
             // On pourrait enregistrer dans la BDD par exemple
+            // retourner la date pour l'afficher correctement dans les résultats
         }
     }else{}
 
@@ -245,9 +249,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }else{}
 
     if(!empty($_POST['superhero'])){
-        $superhero = valid_data($_POST['superhero']);
+        $superhero = trim(filter_var($_POST['superhero'], FILTER_SANITIZE_STRING));
 
-        $superhero = filter_var($superhero, FILTER_SANITIZE_STRING);
+        $superhero = valid_data($superhero);
+
 
         //test de la donnée
         $test_regex = preg_match($regex_textarea, $superhero);
@@ -259,11 +264,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }else{}
 
     if(!empty($_POST['hack'])){
+        // $hack = trim(filter_var($_POST['hack'], FILTER_SANITIZE_STRING));
+
         $hack = valid_data($_POST['hack']);
 
-        $hack = filter_var($hack, FILTER_SANITIZE_STRING);
 
-        //test de la donnée
+        // test de la donnée
         $test_regex = preg_match($regex_textarea, $hack);
         if($test_regex !== 1){
             $error_array['error_hack']->_active = true;
@@ -273,11 +279,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }else{}
 
     if(!empty($_POST['xp_info'])){
+        // $xp_info = trim(filter_var($_POST['xp_info'], FILTER_SANITIZE_STRING));
+
         $xp_info = valid_data($_POST['xp_info']);
+        // $xp_info = $_POST['xp_info'];
 
-        $xp_info = filter_var($xp_info, FILTER_SANITIZE_STRING);
-
-        //test de la donnée
+        // test de la donnée
         $test_regex = preg_match($regex_textarea, $xp_info);
         if($test_regex !== 1){
             $error_array['error_xp_info']->_active = true;
