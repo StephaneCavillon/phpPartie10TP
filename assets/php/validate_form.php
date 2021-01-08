@@ -264,8 +264,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }else{}
 
     if(!empty($_POST['hack'])){
-        // $hack = trim(filter_var($_POST['hack'], FILTER_SANITIZE_STRING));
-
         $hack = valid_data($_POST['hack']);
 
 
@@ -282,7 +280,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // $xp_info = trim(filter_var($_POST['xp_info'], FILTER_SANITIZE_STRING));
 
         $xp_info = valid_data($_POST['xp_info']);
-        // $xp_info = $_POST['xp_info'];
 
         // test de la donnée
         $test_regex = preg_match($regex_textarea, $xp_info);
